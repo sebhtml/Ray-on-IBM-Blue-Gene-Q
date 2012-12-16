@@ -1,0 +1,13 @@
+The documentation of the system is at
+
+	https://support.scinet.utoronto.ca/wiki/index.php/BGQ
+
+
+The input data files were obtained with
+
+	https://github.com/sebhtml/HiSeq2500-NA12878/blob/master/Get.sh
+
+
+The input data files were splitted in smaller files with 
+
+	https://github.com/sebhtml/NGS-Pipelines/blob/master/SplitLargeFastqFileInSmallerParts.py
