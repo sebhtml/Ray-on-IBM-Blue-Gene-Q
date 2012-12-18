@@ -1,19 +1,24 @@
 cd ray
+make clean HAVE_LIBZ=y
+
 module load vacpp
 module load mpich2
 module load compression/all
 
-ray=278a63e2794d5c3f04935c002b2e9a3dddf9ba9a
+ray=e3f97340b5a8f901bd879d8beb439cfb79ea7b3e
 rayplatform=bca919fb19f534e8b605b153a6d63bd5a1576369
-prefix=/home/c/clumeq/sebhtml/software/ray/2.1.1-dev-$ray-$rayplatform
+version=2.1.1-dev-$ray-$rayplatform
+prefix=/home/c/clumeq/sebhtml/software/ray/$version
 
-make \
-PREFIX=$prefix \
--j 10  \
+rm -rf $prefix
+
+make PREFIX=$prefix -j 10  \
 HAVE_LIBZ=y \
-MPICXX=mpicxx \
-Q="" \
 CXXFLAGS="-O3 -qarch=qp -qtune=qp -I $SCINET_ZLIB_INC " \
 LDFLAGS=" -L $SCINET_ZLIB_LIB -lz " \
 
 make install
+
+cd /home/c/clumeq/sebhtml/software/ray/
+rm Last-Build
+ln -s $version Last-Build
