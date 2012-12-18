@@ -1,5 +1,5 @@
 #!/bin/sh
-# @ job_name           = HiSeq-2500-NA12878-demo-2x150-2012-12-15-14
+# @ job_name           = HiSeq-2500-NA12878-demo-2x150-2012-12-16-19
 # @ job_type           = bluegene
 # @ comment            = "None"
 # @ output             = $(job_name).$(Host).$(jobid).out
@@ -35,5 +35,8 @@
 # 32768 Ray processes, 1024 nodes, 32 ranks/node -> PASS [ ] FAIL [x] out of memory
 #  4096 Ray processes,  256 nodes, 16 ranks/node -> PASS [x] FAIL [ ] 69.5754 +/- 2.62784 microseconds
 
-runjob --np 4096 --ranks-per-node=16 --cwd=$PWD : \
-/home/c/clumeq/sebhtml/software/ray/Last-Build/Ray HiSeq-2500-NA12878-demo-2x150.conf
+# always use rendez-vous to pass any message with adaptive routing
+export PAMID_RZV=0
+
+runjob --np 8192 --ranks-per-node=32 --exp-env PAMID_RZV --cwd=$PWD 
+: /home/c/clumeq/sebhtml/software/ray/Last-Build/Ray HiSeq-2500-NA12878-demo-2x150.conf
