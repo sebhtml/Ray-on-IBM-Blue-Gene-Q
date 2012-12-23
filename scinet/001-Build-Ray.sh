@@ -5,7 +5,7 @@ module load vacpp
 module load mpich2
 module load compression/all
 
-ray=a1e1db808f3162959ebb771e1fd0e315f19a57f0
+ray=0d73638d2fa1ee50da721233402425a01e0c2e24
 rayplatform=bca919fb19f534e8b605b153a6d63bd5a1576369
 version=2.1.1-dev-$ray-$rayplatform
 prefix=/home/c/clumeq/sebhtml/software/ray/$version
