@@ -15,7 +15,7 @@ make PREFIX=$prefix -j 10 Q="" \
 ASSERT=y \
 MPICXX=powerpc64-bgq-linux-g++ \
 LD=powerpc64-bgq-linux-g++ \
-CXXFLAGS="-O3 -Wall -std=c++98 -I/bgsys/drivers/V1R1M2/ppc64/comm/sys/include -I/bgsys/drivers/V1R1M2/ppc64 -I/bgsys/drivers/V1R1M2/ppc64/spi/include -I/bgsys/drivers/V1R1M2/ppc64/spi/include/kernel/cnk -I/bgsys/drivers/V1R1M2/ppc64/comm/xl/include -L/bgsys/drivers/V1R1M2/ppc64/comm/xl/lib -lcxxmpich -lmpich -lopa -lmpl -L/bgsys/drivers/V1R1M2/ppc64/comm/sys/lib -lpami -L/bgsys/drivers/V1R1M2/ppc64/spi/lib -lSPI -lSPI_cnk -lpthread -lrt -lstdc++" \
+CXXFLAGS="-g -O3 -Wall -std=c++98 -I/bgsys/drivers/V1R1M2/ppc64/comm/sys/include -I/bgsys/drivers/V1R1M2/ppc64 -I/bgsys/drivers/V1R1M2/ppc64/spi/include -I/bgsys/drivers/V1R1M2/ppc64/spi/include/kernel/cnk -I/bgsys/drivers/V1R1M2/ppc64/comm/xl/include -L/bgsys/drivers/V1R1M2/ppc64/comm/xl/lib -lcxxmpich -lmpich -lopa -lmpl -L/bgsys/drivers/V1R1M2/ppc64/comm/sys/lib -lpami -L/bgsys/drivers/V1R1M2/ppc64/spi/lib -lSPI -lSPI_cnk -lpthread -lrt -lstdc++" \
 LDFLAGS="-I/bgsys/drivers/V1R1M2/ppc64/comm/sys/include -I/bgsys/drivers/V1R1M2/ppc64 -I/bgsys/drivers/V1R1M2/ppc64/spi/include -I/bgsys/drivers/V1R1M2/ppc64/spi/include/kernel/cnk -I/bgsys/drivers/V1R1M2/ppc64/comm/xl/include -L/bgsys/drivers/V1R1M2/ppc64/comm/xl/lib -lcxxmpich -lmpich -lopa -lmpl -L/bgsys/drivers/V1R1M2/ppc64/comm/sys/lib -lpami -L/bgsys/drivers/V1R1M2/ppc64/spi/lib -lSPI -lSPI_cnk -lpthread -lrt -lstdc++" 
 
 make install
