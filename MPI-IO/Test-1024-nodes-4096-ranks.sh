@@ -1,5 +1,5 @@
 #!/bin/sh
-# @ job_name           = Test-1024-nodes-4096-ranks-2013-05-11-1
+# @ job_name           = Test-1024-nodes-4096-ranks-2013-05-11-2
 # @ job_type           = bluegene
 # @ comment            = ""
 # @ output             = $(job_name).$(Host).$(jobid).out
@@ -15,5 +15,5 @@
 runjob --np 4096 --ranks-per-node=4 --cwd=$PWD \
  --envs BGLOCKLESSMPIO_F_TYPE=0x47504653 \
 : /home/c/clumeq/sebhtml/software/Ray-on-IBM-Blue-Gene-Q/MPI-IO/Test-MPI-IO \
--output Test-1024-nodes-4096-ranks-2013-05-11-1.txt -bytes-per-rank 4882812 \
+-output Test-1024-nodes-4096-ranks-2013-05-11-2.txt -bytes-per-rank 4882812 \
 

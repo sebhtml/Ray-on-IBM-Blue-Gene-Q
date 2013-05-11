@@ -6,6 +6,8 @@
  */
 
 #include <mpi.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdint.h>
 #include <iostream>
 #include <sstream>
@@ -25,7 +27,22 @@ int main(int argc, char**argv){
 	MPI_Get_processor_name(machine, &length);
 
 	MPI_File fp;
-	char fileName []= "SampleFile.txt";
+	string filePath = "SampleFile.txt";
+	int bytesPerRank=256;
+
+	for(int i = 1; i < argc - 1; i++) {
+		string command = argv[i];
+		string value = argv[i + 1];
+
+		if(command == "-output") {
+			filePath = value;
+		} else if(command == "-bytes-per-rank") {
+			bytesPerRank = atoi(value.c_str());
+		}
+	}
+
+	char fileName[1024];
+	strcpy(fileName, filePath.c_str());
 
 	MPI_File_open(MPI_COMM_WORLD, fileName, MPI_MODE_CREATE | MPI_MODE_RDWR,
 		MPI_INFO_NULL, &fp);
@@ -33,7 +50,6 @@ int main(int argc, char**argv){
         MPI_Datatype elementType = MPI_BYTE;
         MPI_Datatype fileType = MPI_BYTE;
 
-	int bytesPerRank=256;
         MPI_Offset displacement= rank * bytesPerRank;
 
 	char representation[] = "native";

@@ -1,3 +1,11 @@
 Test MPI I/O on BGQ
 
 \see https://support.scinet.utoronto.ca/wiki/index.php/BGQ
+
+
+Usage:
+
+mpiexec -n 4096 Test-MPI-IO -output MyHugeFile.txt -bytes-per-rank 4882812
+
+
+This will create a file with 4096 * 4882812 bytes.
